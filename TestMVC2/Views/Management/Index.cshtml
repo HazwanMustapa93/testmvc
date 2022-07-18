@@ -1,0 +1,40 @@
+﻿@using TestMVC2.Models.ViewModels
+@using TestMVC2.Models.Entities
+
+@model SubmitUserViewModel
+
+@{
+    ViewBag.Title = "Index";
+    var roleList = ViewBag.roleList as List<Role>;
+}
+
+<div class="management-container">
+    <form action="/management/submituser" method="post">
+        <div class="row">
+            <span>Username</span>
+            <input name="UserName" value="@Model.UserName"/>
+        </div>
+        <div class="row">
+            <span>Full Name</span>
+            <input name="FullName" value="@Model.FullName"/>
+        </div>
+        <div class="row display-flex">
+            <span>User Roles</span>
+            <div>
+                @for (int i = 0; i < roleList.Count(); i++)
+                {
+                    var theRole = roleList[i];
+
+                    <div>
+                        <input id="role-@theRole.Id" type="checkbox" name="UserRole" value="@theRole.Id" @(Model.UserRole.Any(a => theRole.Id == a) ? "checked" : "")/>
+                        <label for="role-@theRole.Id">@theRole.RoleName</label>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+

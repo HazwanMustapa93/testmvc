@@ -1,0 +1,8 @@
+bin
+obj
+wwwroot
+Logs
+doc/
+.vs/
+*.csv
+packages

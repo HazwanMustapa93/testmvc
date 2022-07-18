@@ -1,0 +1,20 @@
+﻿.management-container {
+    padding: 20px;
+}
+
+.management-container .row {
+    margin-bottom: 5px;
+    user-select: none;
+}
+
+.management-container .row span:first-child {
+    padding-right: 10px;
+}
+
+.management-container .row label {
+    font-weight: normal;
+}
+
+.display-flex {
+    display: flex;
+}
